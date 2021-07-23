@@ -1,0 +1,23 @@
+{
+  "name": "array-reduce-course-material",
+  "version": "1.0.0",
+  "description": "Material for my Array.reduce course",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kyleshevlin/array-reduce-course-material.git"
+  },
+  "author": "Kyle Shevlin <kyle.a.shevlin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kyleshevlin/array-reduce-course-material/issues"
+  },
+  "homepage": "https://github.com/kyleshevlin/array-reduce-course-material#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}

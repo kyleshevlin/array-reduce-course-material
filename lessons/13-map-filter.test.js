@@ -35,9 +35,9 @@ function filter(items, predicate) {
 }
 
 describe('filter', () => {
-  it('should be a different refernece', () => {
+  it('should be a different reference', () => {
     const original = [1, 2, 3]
-    const filtered = filter(original, x => x > 1)
+    const filtered = filter(original, x => x > 0)
     expect(original !== filtered).toEqual(true)
   })
 

@@ -1,21 +1,28 @@
 // Practical use: `groupBy`
 
-function groupBy(items, grouper) {
-  return items.reduce((acc, item) => {
-    const result = grouper(item)
+function groupBy(items, getKey) {
+  return items.reduce((acc, item, index, array) => {
+    const key = getKey(item, index, array)
 
-    if (!acc[result]) {
-      acc[result] = []
+    if (!acc[key]) {
+      acc[key] = []
     }
 
-    acc[result].push(item)
+    acc[key].push(item)
 
     return acc
   }, {})
 }
 
 describe('groupBy', () => {
-  it('should use grouper', () => {
+  it('should group items into an object by key returned by getKey fn', () => {
+    expect(
+      groupBy([1, 2, 3, 4, 5], x => (x % 2 ? 'odd' : 'even'))
+    ).toEqual({
+      even: [2, 4],
+      odd: [1, 3, 5],
+    })
+
     expect(
       groupBy([7.2, 4.6, 1.1, 7.3], x => Math.round(x))
     ).toEqual({

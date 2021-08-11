@@ -1,1 +1,1 @@
-// `sum` and `product` with `reduce
+// `sum` and `product` with `reduce`

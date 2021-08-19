@@ -1,6 +1,6 @@
 // Practical use: `counts`
 
-function counts(items, getKey = item => String(item)) {
+function counts(items, getKey = item => item) {
   return items.reduce((acc, item, index, array) => {
     const key = getKey(item, index, array)
 
@@ -22,6 +22,26 @@ describe('counts', () => {
       3: 3,
       4: 4,
     })
+
+    expect(
+      counts([
+        'apple',
+        'orange',
+        'apple',
+        'orange',
+        'apple',
+        'banana',
+      ])
+    ).toEqual({
+      apple: 3,
+      banana: 1,
+      orange: 2,
+    })
+
+    expect(counts([true, true, false, false, false])).toEqual({
+      true: 2,
+      false: 3,
+    })
   })
 
   it('should be able to work on non-primitive values', () => {
@@ -37,6 +57,7 @@ describe('counts', () => {
       red: 3,
       blue: 2,
     })
+
     expect(counts(items, item => item.size)).toEqual({
       L: 1,
       M: 2,
